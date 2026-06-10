@@ -6,16 +6,17 @@ from Human_Agent import Human_Agent
 from Random_Agent import Random_Agent
 from AI_Agent import AI_Agent
 
-PATH = 'Data/Q_MC_yossi.pth'
+PATH = 'Data/Q_QLearning_yossi.pth'
 
 pygame.init()
 clock = pygame.time.Clock()
 graphics = Graphics()
 env = TicTacToe(State())
 # Human plays X (value 1) and moves FIRST; AI plays O (value -1) and responds second.
-player1 = Human_Agent(1, env, graphics)
-player2 = AI_Agent(-1, env, graphics, Q_table_PATH=PATH, train=False)
-
+# player1 = Human_Agent(1, env, graphics)
+# player2 = AI_Agent(-1, env, graphics, Q_table_PATH=PATH, train=False)
+player2 = Human_Agent(1, env, graphics)
+player1 = AI_Agent(-1, env, graphics, Q_table_PATH=PATH, train=False)
 def main ():
     player = player1
     run = True
